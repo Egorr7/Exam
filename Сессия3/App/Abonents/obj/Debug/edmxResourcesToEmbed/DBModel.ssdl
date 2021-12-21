@@ -27,13 +27,6 @@
           <Property Name="Тариф" Type="int" />
           <Property Name="Оплачен" Type="bit" />
         </EntityType>-->
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "Abonents.dbo.Статистика_Разговоров" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Статистика_Разговоров">
-          <Property Name="НомерТелефона" Type="nvarchar" MaxLength="20" />
-          <Property Name="ФИОАбонента" Type="nvarchar" MaxLength="50" />
-          <Property Name="КоличествоРазговоров" Type="int" />
-        </EntityType>-->
   <Function Name="AddNewAbonent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="AbonentNumber" Type="int" Mode="In" />
     <Parameter Name="FIOAbonent" Type="nvarchar" Mode="In" />

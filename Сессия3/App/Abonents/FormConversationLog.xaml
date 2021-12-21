@@ -14,9 +14,15 @@
         </Grid.RowDefinitions>
         
         <TextBlock Text="Сортировать по " VerticalAlignment="Center" Padding="30,0,0,0"></TextBlock>
-        <ComboBox Width="150" VerticalAlignment="Center" Margin="130,19,512,19"/>
+        <ComboBox Name="sortParams" Width="150" VerticalAlignment="Center" Margin="130,19,512,19" SelectedIndex="0">
+            <ComboBoxItem Content="По умолчанию"/>
+            <ComboBoxItem Content="Стоимости"/>
+            <ComboBoxItem Content="Дате разговора"/>
+            <ComboBoxItem Content="Абоненту"/>
+            <ComboBoxItem Content="Продолжительности"/>
+        </ComboBox>
 
-        <TextBox Width="150" Height="30" Margin="632,15,10,15"></TextBox>
+        <TextBox Name="searchWord" Width="150" Height="30" Margin="632,15,10,15"></TextBox>
         <Button Height="30" Width="100" Content="Поиск" Margin="521,15,171,15" Name="btnSearch" Click="btnSearch_Click"></Button>
         
         <!--верхняя панель-->
