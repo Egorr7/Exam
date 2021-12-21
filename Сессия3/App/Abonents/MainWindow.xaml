@@ -1,0 +1,19 @@
+﻿<Window x:Class="Abonents.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abonents"
+        mc:Ignorable="d"
+        Title="Главная Форма" Height="450" Width="800">
+    <Grid Background="White">
+        <StackPanel VerticalAlignment="Center">
+            <Button Width="250" Height="40" Margin="0,0,0,10" Name="OpenAbonentWindow" Click="OpenAbonentWindow_Click">Абоненты</Button>
+            <Button Width="250" Height="40" Margin="0,0,0,10">Телефоны абонентов</Button>
+            <Button Width="250" Height="40" Margin="0,0,0,10">Тарифы</Button>
+            <Button Width="250" Height="40" Margin="0,0,0,50" Name="OpenConversationLog" Click="OpenConversationLog_Click">Разговоры</Button>
+
+            <Button Width="250" Height="40" Name="btnExit" Click="btnExit_Click">Выход</Button>
+        </StackPanel>
+    </Grid>
+</Window>

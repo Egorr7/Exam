@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище AbonentsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Abonents.dbo.Абоненты" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Абоненты">
+          <Property Name="НомерАбонента" Type="int" />
+          <Property Name="ФИОАбонента" Type="nvarchar" MaxLength="50" />
+          <Property Name="Адрес" Type="nvarchar" MaxLength="50" />
+          <Property Name="НомерТелефона" Type="nvarchar" MaxLength="20" />
+          <Property Name="НомерДоговора" Type="nvarchar" MaxLength="20" />
+          <Property Name="ДатаУстакновкиТелефона" Type="date" />
+          <Property Name="НомерРазговора" Type="int" />
+          <Property Name="ДатаРазговора" Type="date" />
+          <Property Name="ВремяРазговора" Type="int" />
+          <Property Name="КодГорода" Type="int" />
+          <Property Name="НазваниеГорода" Type="nvarchar" MaxLength="50" />
+          <Property Name="Тариф" Type="int" />
+          <Property Name="Оплачен" Type="bit" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Abonents.dbo.Статистика_Разговоров" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Статистика_Разговоров">
+          <Property Name="НомерТелефона" Type="nvarchar" MaxLength="20" />
+          <Property Name="ФИОАбонента" Type="nvarchar" MaxLength="50" />
+          <Property Name="КоличествоРазговоров" Type="int" />
+        </EntityType>-->
+  <Function Name="AddNewAbonent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AbonentNumber" Type="int" Mode="In" />
+    <Parameter Name="FIOAbonent" Type="nvarchar" Mode="In" />
+    <Parameter Name="Adress" Type="nvarchar" Mode="In" />
+    <Parameter Name="TelefonNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumberDogovor" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateSetupTelefon" Type="date" Mode="In" />
+    <Parameter Name="NumberRazgovora" Type="int" Mode="In" />
+    <Parameter Name="DateRazgovor" Type="date" Mode="In" />
+    <Parameter Name="LengthRazgovor" Type="int" Mode="In" />
+    <Parameter Name="CityCode" Type="int" Mode="In" />
+    <Parameter Name="CityName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Tariff" Type="int" Mode="In" />
+    <Parameter Name="Payed" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="DeleteAbonents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AbonentNumber" Type="int" Mode="In" />
+    <Parameter Name="FIOAbonent" Type="nvarchar" Mode="In" />
+    <Parameter Name="Adress" Type="nvarchar" Mode="In" />
+    <Parameter Name="TelefonNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumberDogovor" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateSetupTelefon" Type="date" Mode="In" />
+    <Parameter Name="NumberRazgovora" Type="int" Mode="In" />
+    <Parameter Name="DateRazgovor" Type="date" Mode="In" />
+    <Parameter Name="LengthRazgovor" Type="int" Mode="In" />
+    <Parameter Name="CityCode" Type="int" Mode="In" />
+    <Parameter Name="CityName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Tariff" Type="int" Mode="In" />
+    <Parameter Name="Payed" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище AbonentsModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
